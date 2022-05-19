@@ -16,38 +16,38 @@ The following example shows how to add problem matchers to your project:
 
 ```json
 {
-	"version": "2.0.0",
-	"tasks": [
-		{
-			"type": "npm",
-			"label": "npm: watch",
-			"detail": "tsup --watch",
-			"script": "watch",
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			},
-			"problemMatcher": [
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "npm",
+            "label": "npm: watch",
+            "detail": "tsup --watch",
+            "script": "watch",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
                 "$tsup-watch",
                 "$tsup-tsc-watch"
             ],
-			"isBackground": true,
-			"presentation": {
-				"reveal": "never",
-				"group": "watchers"
-			},
-		},
-		{
-			"type": "npm",
-			"label": "npm: build",
-			"detail": "tsup",
-			"script": "build",
-			"group": "build",
-			"problemMatcher": [
-				"$tsup",
-				"$tsup-tsc"
-			]
-		}
-	]
+            "isBackground": true,
+            "presentation": {
+                "reveal": "never",
+                "group": "watchers"
+            },
+        },
+        {
+            "type": "npm",
+            "label": "npm: build",
+            "detail": "tsup",
+            "script": "build",
+            "group": "build",
+            "problemMatcher": [
+                "$tsup",
+                "$tsup-tsc"
+            ]
+        }
+    ]
 }
 ```
