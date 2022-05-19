@@ -4,6 +4,6 @@ All notable changes to the "tsup-problem-matcher" extension will be documented i
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
+## [0.1.0] - 2022-05-19
 
 - Initial release
