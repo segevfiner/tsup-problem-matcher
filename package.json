@@ -3,7 +3,7 @@
 	"displayName": "tsup Problem Matcher",
 	"description": "Problem Matchers for tsup",
 	"author": "Segev Finer <segev208@gmail.com>",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"publisher": "segevfiner",
 	"license": "MIT",
 	"homepage": "https://github.com/segevfiner/tsup-problem-matcher",
