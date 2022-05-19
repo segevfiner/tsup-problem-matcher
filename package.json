@@ -10,10 +10,14 @@
 	"bugs": {
 		"url": "https://github.com/segevfiner/tsup-problem-matcher/issues"
 	},
-	"repository": "segevfiner/tsup-problem-matcher",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/segevfiner/tsup-problem-matcher.git"
+	},
 	"engines": {
 		"vscode": "^1.67.0"
 	},
+	"icon": "images/icon.png",
 	"categories": [
 		"Programming Languages"
 	],
