@@ -1,45 +1,108 @@
 {
-  "name": "tsup-problem-matcher",
+	"name": "tsup-problem-matcher",
 	"displayName": "tsup Problem Matcher",
 	"description": "Problem Matchers for tsup",
-	"version": "0.0.1",
+	"author": "Segev Finer <segev208@gmail.com>",
+	"version": "0.1.0",
+	"publisher": "segevfiner",
+	"license": "MIT",
+	"homepage": "https://github.com/segevfiner/tsup-problem-matcher",
+	"bugs": {
+		"url": "https://github.com/segevfiner/tsup-problem-matcher/issues"
+	},
+	"repository": "segevfiner/tsup-problem-matcher",
 	"engines": {
 		"vscode": "^1.67.0"
 	},
 	"categories": [
-		"Other"
+		"Programming Languages"
 	],
-	"activationEvents": [
-        "onCommand:tsup-problem-matcher.helloWorld"
+	"keywords": [
+		"tsup",
+		"javascript",
+		"typescript",
+		"problem matcher",
+		"tasks"
 	],
-	"main": "./out/extension.js",
 	"contributes": {
-		"commands": [
+		"problemPatterns": [
 			{
-				"command": "tsup-problem-matcher.helloWorld",
-				"title": "Hello World"
+				"name": "tsup",
+				"patterns": [
+					{
+						"regexp": "^✘\\s+\\[ERROR\\]\\s+(.+)$",
+						"message": 1
+					},
+					{
+						"regexp": "^\\s*$"
+					},
+					{
+						"regexp": "^\\s+(.+):(\\d+):(\\d+):$",
+						"file": 1,
+						"line": 2,
+						"column": 3
+					}
+				]
+			}
+		],
+		"problemMatchers": [
+			{
+				"name": "tsup",
+				"label": "tsup problems",
+				"owner": "tsup",
+				"source": "tsup",
+				"severity": "error",
+				"fileLocation": "absolute",
+				"pattern": "$tsup"
+			},
+			{
+				"base": "$tsup",
+				"name": "tsup-watch",
+				"label": "tsup problems (watch mode)",
+				"background": {
+					"beginsPattern": "^CJS Build start$",
+					"endsPattern": "^CJS .* Build success|^CJS Build failed"
+				}
+			},
+			{
+				"base": "$tsc",
+				"name": "tsup-tsc",
+				"label": "tsup TypeScript problems (With --dts enabled)"
+			},
+			{
+				"base": "$tsup-tsc",
+				"name": "tsup-tsc-watch",
+				"label": "tsup TypeScript problems (With --dts enabled) (watch mode)",
+				"background": {
+					"beginsPattern": "^DTS Build start$",
+					"endsPattern": "^DTS .* Build success|^DTS Build failed"
+				}
 			}
 		]
 	},
+	"extensionKind": ["ui", "workspace"],
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
 		"pretest": "npm run compile && npm run lint",
 		"lint": "eslint src --ext ts",
-		"test": "node ./out/test/runTest.js"
+		"test": "node ./out/test/runTest.js",
+		"package": "vsce package",
+		"deploy": "vsce deploy"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.67.0",
 		"@types/glob": "^7.2.0",
 		"@types/mocha": "^9.1.1",
 		"@types/node": "14.x",
+		"@types/vscode": "^1.67.0",
 		"@typescript-eslint/eslint-plugin": "^5.21.0",
 		"@typescript-eslint/parser": "^5.21.0",
+		"@vscode/test-electron": "^2.1.3",
 		"eslint": "^8.14.0",
 		"glob": "^8.0.1",
 		"mocha": "^9.2.2",
 		"typescript": "^4.6.4",
-		"@vscode/test-electron": "^2.1.3"
+		"vsce": "^2.8.0"
 	}
 }
