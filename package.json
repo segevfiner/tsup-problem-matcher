@@ -56,7 +56,6 @@
 				"owner": "tsup",
 				"source": "tsup",
 				"severity": "error",
-				"fileLocation": "absolute",
 				"pattern": "$tsup"
 			},
 			{
